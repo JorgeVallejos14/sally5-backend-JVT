@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Catalogo - Libreria de Acorn{% endblock %}
+
+{% block contenido %}
+    <form method="get" class="filtros">
+        <input type="text" name="q" value="{{ q }}" placeholder="Buscar por titulo o autor">
+        <select name="editorial">
+            <option value="">Todas las editoriales</option>
+            {% for e in editoriales %}
+                <option value="{{ e.id }}" {% if editorial_sel == e.id|stringformat:"d" %}selected{% endif %}>{{ e.nombre }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar</button>
+        <a href="{% url 'catalogo:inicio' %}">Limpiar</a>
+    </form>
+
+    <p class="resumen">
+        Libros: <strong>{{ total }}</strong> ·
+        Precio promedio: <strong>{{ promedio_clp }}</strong>
+    </p>
+
+    <div class="lista">
+    {% for l in libros %}
+        <div class="tarjeta">
+            <span class="genero">{{ l.get_genero_display }}</span>
+            <h2>{{ l.titulo }}</h2>
+            <p>{{ l.autor }} · {{ l.editorial.nombre }}</p>
+            <p>{{ l.sinopsis|truncatewords:8 }}</p>
+            <p class="precio">{{ l.precio_clp }}</p>
+            {% if not l.disponible %}
+                <span class="agotado">Agotado</span>
+            {% endif %}
+            <a href="{% url 'catalogo:detalle' l.id %}">Ver detalle</a>
+        </div>
+    {% empty %}
+        <p>No hay libros que coincidan con la busqueda.</p>
+    {% endfor %}
+    </div>
+{% endblock %}

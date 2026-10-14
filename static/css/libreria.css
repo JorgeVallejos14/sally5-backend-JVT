@@ -1,0 +1,145 @@
+body {
+    background-color: #2a1f14;
+    color: #f5ead8;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin: 0;
+}
+
+header {
+    background-color: #1b130b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #d4a24c;
+}
+
+header h1 {
+    color: #d4a24c;
+    margin: 0 0 10px 0;
+}
+
+nav a {
+    color: #f5ead8;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #d4a24c;
+}
+
+main {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filtros input,
+.filtros select,
+.filtros button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+.filtros button {
+    background-color: #d4a24c;
+    color: #1b130b;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filtros a {
+    color: #f5ead8;
+    align-self: center;
+}
+
+.resumen {
+    background-color: #4a3622;
+    padding: 10px 14px;
+    border-radius: 6px;
+}
+
+.lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: #4a3622;
+    border-radius: 10px;
+    padding: 18px;
+    width: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.tarjeta h2 {
+    color: #d4a24c;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.tarjeta a,
+.boton {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #d4a24c;
+    color: #1b130b;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffe6a8;
+}
+
+.genero {
+    display: inline-block;
+    background-color: #d4a24c;
+    color: #1b130b;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.agotado {
+    display: inline-block;
+    background-color: #8b2e2e;
+    color: #ffd6d6;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.datos {
+    list-style: none;
+    padding: 0;
+}
+
+.datos li {
+    background-color: #4a3622;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.aviso {
+    background-color: #5a3d12;
+    color: #ffd58a;
+    padding: 12px;
+    border-radius: 6px;
+}

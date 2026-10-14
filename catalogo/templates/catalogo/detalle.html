@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ libro.titulo }}{% endblock %}
+
+{% block contenido %}
+    <h2>{{ libro.titulo }}</h2>
+    <span class="genero">{{ libro.get_genero_display }}</span>
+
+    <ul class="datos">
+        <li>Autor: {{ libro.autor }}</li>
+        <li>Editorial: {{ libro.editorial.nombre }} ({{ libro.editorial.pais }}, fundada en {{ libro.editorial.fundada }})</li>
+        <li>Paginas: {{ libro.paginas }}</li>
+        <li>Precio: {{ libro.precio_clp }}</li>
+        <li>Estado: {{ libro.disponible|yesno:"Disponible,Agotado" }}</li>
+    </ul>
+
+    {{ libro.sinopsis|default:"Sin sinopsis."|linebreaks }}
+
+    {% if libro.paginas > 300 %}
+        <p class="aviso">Lectura extensa: mas de 300 paginas.</p>
+    {% endif %}
+    {% if not libro.disponible %}
+        <p class="aviso">Este libro esta agotado por ahora.</p>
+    {% endif %}
+
+    <a href="{% url 'catalogo:inicio' %}?editorial={{ libro.editorial.id }}" class="boton">Mas libros de {{ libro.editorial.nombre }}</a>
+    <a href="{% url 'catalogo:inicio' %}" class="boton">Volver al catalogo</a>
+{% endblock %}

@@ -1,0 +1,3 @@
+Uso de IA: Copilot
+Que se pidio: Plantilla HTML + CSS
+Que se cambio: Plantilla como CSS no tienen ningun error o inconveniente
